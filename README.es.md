@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.0.0 · **Última actualización:** 2026-10-14
+**Versión:** 2.0.0 · **Última actualización:** 2026-10-26
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -61,3 +61,7 @@ MIT — véase el archivo `LICENSE` en la raíz del repositorio.
 ## Historial
 
 - 1.0.0 — 2026-10-14: primera versión.
+- 1.0.1 — 2026-10-22: nueva nota destacada en el bloque de estado y en el informe exportado: una firma válida no prueba que la imagen sea verdadera y un firmante desconocido parece igual de válido; áreas táctiles de al menos 24 px.
+- 1.0.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 con 600.000 iteraciones, protección anti-clickjacking.
+- 1.0.3 — 2026-10-22: fff-kit 1.1.4: áreas táctiles y tamaño mínimo del texto en la interfaz común.
+- 1.0.5 — 2026-10-23: mensaje alternativo cuando JavaScript está desactivado (noscript).

@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 2026-10-14
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -20,9 +20,15 @@ Proveniență este un verificator **local și experimental** de manifeste C2PA /
 4. „Comparare”: alege două fișiere; diferențele sunt evidențiate.
 5. Exportă raportul (JSON/Markdown); implicit include numele fișierului, nu include valorile afirmațiilor, miniaturile sau conținutul.
 
+## Listă de încredere și axa timpului (v2.0.0)
+
+- „Lista ta de încredere” acceptă fișiere PEM (și pachete cu mai multe certificate) sau DER. Pentru fiecare manifest se arată una dintre: *semnat de un emitent din lista ta*, *semnat, dar de un emitent necunoscut* (inclusiv când nu ai încărcat nicio listă), *lanț rupt* sau *neevaluat* (semnătura nu e validă). Rezultatele deja afișate se reevaluează imediat la orice import sau eliminare.
+- Cronologia editărilor declarate este acum o axă: fiecare manifest are dată, semnatar, starea semnăturii și starea de încredere; la comparare apare și rândul „Încredere în emitent”. Raportul JSON/Markdown include starea de încredere și amprentele SHA-256 ale listei (nu certificatele).
+- Nu există fișiere reale în teste: tot ce s-a verificat folosește certificate și fișiere C2PA sintetice.
+
 ## Ce NU face și limitele
 
-- **Nu include lista de încredere C2PA.** Starea „Emitentul NU este verificat față de lista de încredere C2PA” apare întotdeauna: aplicația nu poate spune dacă un emitent e de încredere. Un certificat autosemnat produce același „semnătură validă matematic”.
+- **Nu include nicio listă de încredere (nici cea C2PA).** Poți importa tu certificate (PEM/DER) în secțiunea „Lista ta de încredere”; fără ele, o semnătură validă apare ca „Semnat, dar de un emitent necunoscut”, iar nota „Emitentul NU este verificat față de lista de încredere C2PA” rămâne. „De încredere” înseamnă doar că lanțul de certificate se leagă criptografic de un certificat din lista ta; revocarea nu se verifică, iar un certificat autosemnat importat de tine devine ancoră. Lista rămâne doar în acest browser.
 - Nu verifică revocarea (OCSP/CRL) și nici semnătura autorității de marcare temporală; marcajul temporal este doar citit și afișat ca nevalidat.
 - Absența unui manifest **nu** înseamnă că imaginea e falsă sau reală: metadatele se pot elimina (captură de ecran, redimensionare, încărcare pe platforme).
 - Un manifest valid spune ce a declarat semnatarul și că datele nu s-au schimbat de la semnare; nu dovedește că ce se vede s-a întâmplat. Sisteme AI pot semna conținut; semnatarul poate declara orice (de exemplu `digitalSourceType`).
@@ -61,3 +67,7 @@ MIT — vezi fișierul `LICENSE` din rădăcina depozitului.
 ## Istoric
 
 - 1.0.0 — 2026-10-14: prima versiune.
+- 1.0.1 — 2026-10-22: notă vizibilă nouă în blocul de stare și în raportul exportat: o semnătură validă nu dovedește că imaginea e adevărată, iar un semnatar necunoscut arată la fel de valid; ținte tactile de cel puțin 24 px.
+- 1.0.2 — 2026-10-22: fff-kit 1.1.2: PBKDF2 cu 600.000 de iterații, protecție anti-clickjacking.
+- 1.0.3 — 2026-10-22: fff-kit 1.1.4: ținte tactile și text minim în interfața comună.
+- 1.0.5 — 2026-10-23: mesaj de rezervă când JavaScript este dezactivat (noscript).
