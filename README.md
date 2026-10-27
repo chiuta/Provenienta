@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Last updated:** 2026-10-27
+**Version:** 2.1.0 · **Last updated:** 2026-10-27
 
 **Status:** experimental · **Offline:** complete
 
@@ -20,7 +20,8 @@ Proveniență is a **local, experimental** checker for C2PA manifests / Content 
 2. Read "Verified statuses" (signature, binding to the file, issuer) and "At a glance".
 3. Open the timeline, the hashes, the certificates and the technical tree for details.
 4. "Compare": choose two files; the differences are highlighted.
-5. Export the report (JSON/Markdown); by default it includes the file name, but not the assertion values, thumbnails or content.
+5. Read "Strict check (list of conditions)" (new in 2.1.0): eight conditions the app can evaluate locally (valid signature, file matches the binding, all assertion hashes match, chain ends at a self-signed certificate with verifying signatures, issuer in **your** imported list, certificate valid today, certificate algorithm not weak, no structure warnings), each shown as met / not met. It also notes, for information only, whether a timestamp exists and whether its (unvalidated) time falls inside the certificate validity period. **This is not a C2PA conformance verdict**: it only summarises what the app itself checks, and "all met" does not prove that what you see happened.
+6. Export the report (JSON/Markdown); by default it includes the file name, but not the assertion values, thumbnails or content. The report now contains the same checklist (`strictChecklist`).
 
 ## What it does NOT do, and its limits
 

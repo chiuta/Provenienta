@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** experimental · **Offline:** complet
 
@@ -20,7 +20,8 @@ Proveniență este un verificator **local și experimental** de manifeste C2PA /
 2. Citește „Stări verificate” (semnătură, legătura cu fișierul, emitent) și „Pe scurt”.
 3. Deschide cronologia, hash-urile, certificatele și arborele tehnic pentru detalii.
 4. „Comparare”: alege două fișiere; diferențele sunt evidențiate.
-5. Exportă raportul (JSON/Markdown); implicit include numele fișierului, nu include valorile afirmațiilor, miniaturile sau conținutul.
+5. Citește „Verificare strictă (listă de condiții)” (nou în 2.1.0): opt condiții pe care aplicația le poate evalua local (semnătură validă, fișierul se potrivește cu legarea, toate hash-urile afirmațiilor se potrivesc, lanțul se încheie la un certificat autosemnat cu semnături care se verifică, emitentul este în lista **ta** importată, certificatul este valabil azi, algoritmul certificatului nu este slab, fără avertismente de structură), fiecare marcată îndeplinită / neîndeplinită. Notează, doar informativ, dacă există un marcaj temporal și dacă momentul lui (nevalidat) cade în perioada de valabilitate a certificatului. **Nu este un verdict de conformitate C2PA**: rezumă doar ce verifică aplicația însăși, iar „toate îndeplinite” nu dovedește că ceea ce vezi s-a petrecut.
+6. Exportă raportul (JSON/Markdown); implicit include numele fișierului, nu include valorile afirmațiilor, miniaturile sau conținutul. Raportul conține acum aceeași listă (`strictChecklist`).
 
 ## Listă de încredere și axa timpului (v2.0.0)
 
