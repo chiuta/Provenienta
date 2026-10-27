@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** experimental · **Offline:** complet
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -32,15 +34,22 @@ Proveniență este un verificator **local și experimental** de manifeste C2PA /
 - Nu verifică revocarea (OCSP/CRL) și nici semnătura autorității de marcare temporală; marcajul temporal este doar citit și afișat ca nevalidat.
 - Absența unui manifest **nu** înseamnă că imaginea e falsă sau reală: metadatele se pot elimina (captură de ecran, redimensionare, încărcare pe platforme).
 - Un manifest valid spune ce a declarat semnatarul și că datele nu s-au schimbat de la semnare; nu dovedește că ce se vede s-a întâmplat. Sisteme AI pot semna conținut; semnatarul poate declara orice (de exemplu `digitalSourceType`).
-- **Experimental, netestat pe fișiere reale.** Testele folosesc exclusiv fișiere C2PA **sintetice, scrise de autor** după descrierea specificației (nu eșantioane oficiale); nu s-a testat pe fișiere produse de aparate sau servicii reale. Pot exista diferențe față de implementările de referință.
+- **Experimental, netestat pe fișiere reale.** Testele folosesc exclusiv fișiere C2PA **sintetice, scrise de autor** după descrierea specificației (nu eșantioane oficiale); nu s-a testat pe fișiere produse de aparate sau servicii reale. (vezi „Starea testării” mai jos). Pot exista diferențe față de implementările de referință.
 - Pentru ISO BMFF (MP4/MOV/AVIF/HEIC) legătura dură se calculează doar pentru excluderi de nivel superior; fișierele fragmentate, cu Merkle sau cu excluderi imbricate sunt marcate „neevaluat”. O nepotrivire BMFF poate fi și o limită a aplicației.
 - PDF: doar detectare superficială a unui indiciu de manifest; nu se parsează și nu se verifică. GIF, TIFF, MP3, FLAC etc. nu sunt acceptate. Nu se evaluează `c2pa.hash.collection.data`, `c2pa.hash.boxes`, CAWG (doar afișat), credențiale verificabile.
 - Se verifică octeții, nu sensul imaginii. Starea „semnătură” și starea „fișier” sunt independente.
 - Limită de dimensiune: 400 MB (fișierul se citește în memorie).
 
+## Starea testării (notă sinceră)
+
+- **Făcut:** teste automate cu fișiere sintetice generate de autor (`tests/synth.mjs`): certificate de test autosemnate, un manifest JUMBF scris de mână cu semnătură COSE reală, inserat în JPEG/PNG/WebP/SVG/MP4.
+- **NEFĂCUT:** nicio testare pe fișiere reale produse de instrumente Adobe, de un aparat Leica, de un telefon Google Pixel sau de orice alt aparat ori serviciu. Nu se pretinde compatibilitate cu ele. Pot exista diferențe față de implementările de referință.
+- **Planificat:** rularea aplicației pe fișiere reale și compararea cu un instrument de referință. Există o colecție publică de fișiere de test C2PA la https://c2pa.org/public-testfiles (fișiere denumite după furnizor; licență Creative Commons CC BY-SA, conform paginii; ce furnizori și formate conține: de verificat). Dacă ai fișiere reale semnate (Adobe, Leica, Pixel...) pe care le poți partaja, sau vezi un verdict diferit de cel al unui instrument de referință, deschide un issue.
+- **Lista de încredere opțională:** importul propriilor certificate (PEM/DER, până la 300, maximum 2 MB per fișier) există din 2.0.0; nu este lista oficială C2PA, pe care aplicația nu o include. Verificarea față de lista oficială: planificată, neimplementată.
+
 ## Confidențialitate
 
-Rulează local, nu trimite nimic: CSP cu `connect-src 'none'`, fără scripturi sau fonturi externe. Se păstrează în `localStorage` doar limba și tema (`fff.provenienta.lang`, `fff.provenienta.theme`); butonul „Șterge preferințele salvate” le elimină. Nu există alte date ale utilizatorului, deci nici export/import `.fff.json`. CSP-ul este cel standard al catalogului, fără adaptări (`img-src blob:` este folosit pentru miniaturile din manifest).
+Rulează local, nu trimite nimic: CSP cu `connect-src 'none'`, fără scripturi sau fonturi externe. Se păstrează în `localStorage` limba și tema (`fff.provenienta.lang`, `fff.provenienta.theme`) și, dacă o imporți, lista ta de încredere (doar certificate publice, cheia `fff.provenienta.trust`); butonul „Șterge preferințele salvate” le elimină pe toate. Nu există alte date ale utilizatorului, deci nici export/import `.fff.json`. CSP-ul este cel standard al catalogului, fără adaptări (`img-src blob:` este folosit pentru miniaturile din manifest).
 
 ## Formate acceptate
 
