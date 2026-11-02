@@ -1,5 +1,11 @@
 # Jurnal de modificări — Provenienta
 
+## 2.1.0 — 2026-11-02 (reîmprospătare kit)
+
+- Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).
+- Nou (kit): **Istoric local — «mașina timpului»** (`FFF.history`) — instantanee automate ale datelor (IndexedDB, fără secrete), diferență față de starea curentă și restaurare reversibilă; «Șterge datele aplicației» șterge și istoricul.
+- Module adăugate: `qr`, `p2p`, `sync`, `history` (+~140 KB). Versiunea aplicației nu se schimbă.
+
 ## 2.1.0 — 2026-10-27 (anterior: 2.0.1)
 - NOU: secțiunea „Verificare strictă (listă de condiții)” în rezultat și în raportul JSON (`strictChecklist`) / Markdown: 8 condiții evaluate local din rezultatele existente (semnătură, legare la fișier, hash-uri de afirmații, lanț până la certificat autosemnat, emitent în lista importată de utilizator, certificat valabil azi, algoritm nu slab, fără avertismente de structură) + notă informativă despre marcajul temporal (prezent/absent; în/în afara valabilității certificatului; nevalidat, nu intră în verdict). Verdictul spune explicit că NU este conformitate C2PA.
 - Nu s-a schimbat nicio verificare existentă și nu s-au adăugat reguli noi despre specificația C2PA (nu am putut verifica textul specificației din sandbox).
