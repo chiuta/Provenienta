@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.1.2 · **Ultima actualizare:** 2026-11-08
+**Versiune:** 2.1.3 · **Ultima actualizare:** 2026-11-08
 
 **Stare:** experimental · **Offline:** complet
 
@@ -44,8 +44,9 @@ Proveniență este un verificator **local și experimental** de manifeste C2PA /
 ## Starea testării (notă sinceră)
 
 - **Făcut:** teste automate cu fișiere sintetice generate de autor (`tests/synth.mjs`): certificate de test autosemnate, un manifest JUMBF scris de mână cu semnătură COSE reală, inserat în JPEG/PNG/WebP/SVG/MP4.
+- **Făcut și (din 2.1.x):** `tests/real-c2pa.test.mjs` rulează aplicația pe fișiere semnate cu o **unealtă C2PA reală** (c2pa-python 0.38.1 / c2pa-rs 0.91.3) și compară verdictele cu cele ale lui c2pa-rs; doar JPEG și PNG, un singur lanț ES256, fără ștampilă de timp. Fișierele rămân **sintetice**: certificate de test generate local (vezi `tests/fixtures/README.md`), nu provin de la aparate, servicii sau emitenți reali.
 - **NEFĂCUT:** nicio testare pe fișiere reale produse de instrumente Adobe, de un aparat Leica, de un telefon Google Pixel sau de orice alt aparat ori serviciu. Nu se pretinde compatibilitate cu ele. Pot exista diferențe față de implementările de referință.
-- **Planificat:** rularea aplicației pe fișiere reale și compararea cu un instrument de referință. Există o colecție publică de fișiere de test C2PA la https://c2pa.org/public-testfiles (fișiere denumite după furnizor; licență Creative Commons CC BY-SA, conform paginii; ce furnizori și formate conține: de verificat). Dacă ai fișiere reale semnate (Adobe, Leica, Pixel...) pe care le poți partaja, sau vezi un verdict diferit de cel al unui instrument de referință, deschide un issue.
+- **Planificat:** rularea aplicației pe fișiere din lumea reală (aparate, servicii) și compararea cu un instrument de referință. Există o colecție publică de fișiere de test C2PA la https://c2pa.org/public-testfiles (fișiere denumite după furnizor; licență Creative Commons CC BY-SA, conform paginii; ce furnizori și formate conține: de verificat). Dacă ai fișiere reale semnate (Adobe, Leica, Pixel...) pe care le poți partaja, sau vezi un verdict diferit de cel al unui instrument de referință, deschide un issue.
 - **Lista de încredere opțională:** importul propriilor certificate (PEM/DER, până la 300, maximum 2 MB per fișier) există din 2.0.0; nu este lista oficială C2PA, pe care aplicația nu o include. Verificarea față de lista oficială: planificată, neimplementată.
 
 ## Confidențialitate

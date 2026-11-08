@@ -1,5 +1,8 @@
 # Jurnal de modificări — Provenienta
 
+## 2.1.3 — 2026-11-08
+Doar documentare: «Starea testării» (README EN/RO) menționează acum `tests/real-c2pa.test.mjs` (fișiere semnate cu c2pa-python/c2pa-rs, dar tot sintetice, cu certificate de test); codul nu s-a schimbat.
+
 ## 2.1.0 — 2026-11-02 (reîmprospătare kit)
 
 - Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).
