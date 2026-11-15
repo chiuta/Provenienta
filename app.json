@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "provenienta",
   "name": "Proveniență — C2PA",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "updated": "2026-11-15",
   "description": "Proveniență: verificator local, experimental, de manifeste C2PA / Content Credentials (JPEG, PNG, WebP, MP4/MOV/AVIF/HEIC, SVG). Citește manifestul, verifică semnătura și legătura cu fișierul; nu include lista de încredere C2PA.",
   "egress": [],
@@ -13,8 +13,8 @@
     "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 713671,
-  "sha256": "23a5b61cd6470bb8158ae3287170b6400faef70d68e44af543e8d4bd85a458b6",
+  "sizeBytes": 731707,
+  "sha256": "477f670db4bd5eafb92331ebb77a079f941dc7b55e1c67529a15a8e0d28b836c",
   "csp": {
     "present": true,
     "directives": {
@@ -59,6 +59,7 @@
       "exit",
       "view",
       "a11y",
+      "share",
       "ux",
       "label",
       "bundle",
@@ -69,7 +70,7 @@
     ]
   },
   "kit": {
-    "version": "1.6.0",
+    "version": "1.7.0",
     "modules": [
       "core",
       "store",
@@ -77,6 +78,7 @@
       "exit",
       "view",
       "a11y",
+      "share",
       "ux",
       "label",
       "bundle",
